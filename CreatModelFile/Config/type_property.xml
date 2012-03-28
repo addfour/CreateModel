@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <typelist>
+    <type id="1" name="型号1" />
+    <type id="2" name="型号2" />
+  </typelist>
+  <propertylist>
+    <property id="1" name="试验类型1" />
+    <property id="2" name="试验类型2" />
+  </propertylist>
+</config>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <grouplist>
+    <group id="1" name="出筒试验" />
+    <group id="2" name="出水试验" />
+  </grouplist>
+</config>

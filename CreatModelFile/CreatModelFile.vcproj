@@ -19,7 +19,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			CharacterSet="2"
 			>
 			<Tool
@@ -59,7 +59,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="qtmaind.lib qtguid4.lib qtcored4.lib qtxmld4.lib"
-				OutputFile="Debug\$(ProjectName)d.dll"
+				OutputFile="Debug\$(ProjectName).exe"
 				AdditionalLibraryDirectories="&quot;$(QT_LIB)&quot;"
 				ModuleDefinitionFile="CreatModel.def"
 				GenerateDebugInformation="true"

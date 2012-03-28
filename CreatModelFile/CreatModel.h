@@ -37,7 +37,7 @@ public:
 	~CreatModel(void);
 	
 private:
-	//QMenuBar  *menuBar;
+	QMenuBar  *menuBar;
 	QPushButton *btn_new;
 	QPushButton *btn_open;
 	QPushButton *btn_save;

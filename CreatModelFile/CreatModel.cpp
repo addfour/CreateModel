@@ -21,55 +21,55 @@ CreatModel::CreatModel(QWidget* parent)
 	this->setWindowIcon(icon);
 	this->setWindowTitle("模型管理封装工具");
 
-	menuBar = new QMenuBar(this);
-	QMenu* menuStart = menuBar->addMenu("开始");
-	QAction* actionNew = menuStart->addAction("新建");
-	actionNew->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_N));
-	QAction* actionOpen = menuStart->addAction("打开");
-	actionOpen->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
-	QAction* actionSave = menuStart->addAction("保存");
-	actionSave->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_S));
-	QAction* actionSaveAs = menuStart->addAction("另存为...");
-	QAction* actionExit = menuStart->addAction("退出(Exit)");
-	QMenu* menuHelp = menuBar->addMenu("帮助");
+	//menuBar = new QMenuBar(this);
+	//QMenu* menuStart = menuBar->addMenu("开始");
+	//QAction* actionNew = menuStart->addAction("新建");
+	//actionNew->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_N));
+	//QAction* actionOpen = menuStart->addAction("打开");
+	//actionOpen->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
+	//QAction* actionSave = menuStart->addAction("保存");
+	//actionSave->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_S));
+	//QAction* actionSaveAs = menuStart->addAction("另存为...");
+	//QAction* actionExit = menuStart->addAction("退出(Exit)");
+	//QMenu* menuHelp = menuBar->addMenu("帮助");
 
-	connect(actionSave, SIGNAL(triggered()), this, SLOT(OnSave()));
-	connect(actionSaveAs, SIGNAL(triggered()), this, SLOT(OnSaveAs()));
-	connect(actionNew, SIGNAL(triggered()), this, SLOT(OnNew()));
-	connect(actionOpen, SIGNAL(triggered()), this, SLOT(OnOpen()));
-	connect(actionExit, SIGNAL(triggered()), this, SLOT(OnQuit()));
+	//connect(actionSave, SIGNAL(triggered()), this, SLOT(OnSave()));
+	//connect(actionSaveAs, SIGNAL(triggered()), this, SLOT(OnSaveAs()));
+	//connect(actionNew, SIGNAL(triggered()), this, SLOT(OnNew()));
+	//connect(actionOpen, SIGNAL(triggered()), this, SLOT(OnOpen()));
+	//connect(actionExit, SIGNAL(triggered()), this, SLOT(OnQuit()));
 
-	//btn_new = new QPushButton(this);
-	//btn_new->setGeometry(QRect(19, 10, 50, 20));
-	//btn_new->setIcon(QIcon("image/new.png"));
-	//btn_new->setText("新建");
-	//btn_new->setFlat(true);
+	btn_new = new QPushButton(this);
+	btn_new->setGeometry(QRect(19, 10, 50, 20));
+	btn_new->setIcon(QIcon("image/new.png"));
+	btn_new->setText("新建");
+	btn_new->setFlat(true);
 
-	//btn_open = new QPushButton(this);
-	//btn_open->setGeometry(QRect(90, 10, 50, 20));
-	//btn_open->setIcon(QIcon("image/open.png"));
-	//btn_open->setText("打开");
-	//btn_open->setFlat(true);
+	btn_open = new QPushButton(this);
+	btn_open->setGeometry(QRect(90, 10, 50, 20));
+	btn_open->setIcon(QIcon("image/open.png"));
+	btn_open->setText("打开");
+	btn_open->setFlat(true);
 
-	//btn_save = new QPushButton(this);
-	//btn_save->setGeometry(QRect(160, 10, 50, 20));
-	//btn_save->setIcon(QIcon("image/save.png"));
-	//btn_save->setText("保存");
-	//btn_save->setFlat(true);
+	btn_save = new QPushButton(this);
+	btn_save->setGeometry(QRect(160, 10, 50, 20));
+	btn_save->setIcon(QIcon("image/save.png"));
+	btn_save->setText("保存");
+	btn_save->setFlat(true);
 
-	//btn_saveAs = new QPushButton(this);
-	//btn_saveAs->setGeometry(QRect(230, 10, 65, 20));
-	//btn_saveAs->setIcon(QIcon("image/saveAs.png"));
-	//btn_saveAs->setText("另存为");
-	//btn_saveAs->setFlat(true);
+	btn_saveAs = new QPushButton(this);
+	btn_saveAs->setGeometry(QRect(230, 10, 65, 20));
+	btn_saveAs->setIcon(QIcon("image/saveAs.png"));
+	btn_saveAs->setText("另存为");
+	btn_saveAs->setFlat(true);
 
-	//lb_filePath = new QLabel(this);
-	//lb_filePath->setGeometry(QRect(20, 29,520 , 36));
+	lb_filePath = new QLabel(this);
+	lb_filePath->setGeometry(QRect(20, 29,520 , 36));
 
-	//connect(btn_save, SIGNAL(clicked()), this, SLOT(OnSave()));
-	//connect(btn_saveAs, SIGNAL(clicked()), this, SLOT(OnSaveAs()));
-	//connect(btn_new, SIGNAL(clicked()), this, SLOT(OnNew()));
-	//connect(btn_open, SIGNAL(clicked()), this, SLOT(OnOpen()));
+	connect(btn_save, SIGNAL(clicked()), this, SLOT(OnSave()));
+	connect(btn_saveAs, SIGNAL(clicked()), this, SLOT(OnSaveAs()));
+	connect(btn_new, SIGNAL(clicked()), this, SLOT(OnNew()));
+	connect(btn_open, SIGNAL(clicked()), this, SLOT(OnOpen()));
 	
 	gb_modelInfo = new QGroupBox(this);
 	gb_modelInfo->setGeometry(QRect(9, 70, 551, 226));
@@ -543,6 +543,11 @@ void CreatModel::showAllInfo()
 			QString fileName = n.toElement().attributeNode("name").value();
 			QString filePath = n.toElement().attributeNode("path").value();
 			QString fileDescript = n.toElement().attributeNode("description").value();
+			//如果 fileName filePath fileDescript都为空，则文件列表信息为空
+			if (fileName.isEmpty() && filePath.isEmpty() && fileDescript.isEmpty())
+			{
+				return;
+			}
 			sAllInfo = fileName + ";" + fileDescript + ";" + filePath;
 		}
 		n = n.nextSibling();

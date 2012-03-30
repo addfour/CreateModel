@@ -14,8 +14,8 @@
 CreatModel::CreatModel(QWidget* parent)
 : QDialog(parent), m_flag(0), m_infos(new QStandardItemModel),m_flagName("")
 { 
-	this->setFixedSize(572, 554);
-	//this->resize(572, 580);
+	//this->setFixedSize(572, 554);
+	this->resize(572, 580);
 	QPixmap iconImg(QDir::currentPath() +"/image/model.png");
 	QIcon icon(iconImg);
 	this->setWindowIcon(icon);
@@ -33,11 +33,11 @@ CreatModel::CreatModel(QWidget* parent)
 	QAction* actionExit = menuStart->addAction("ÍË³ö(Exit)");
 	QMenu* menuHelp = menuBar->addMenu("°ïÖú");
 
-	connect(actionSave, SIGNAL(triggered()), this, SLOT(OnSave()));
-	connect(actionSaveAs, SIGNAL(triggered()), this, SLOT(OnSaveAs()));
-	connect(actionNew, SIGNAL(triggered()), this, SLOT(OnNew()));
-	connect(actionOpen, SIGNAL(triggered()), this, SLOT(OnOpen()));
-	connect(actionExit, SIGNAL(triggered()), this, SLOT(OnQuit()));
+	//connect(actionSave, SIGNAL(triggered()), this, SLOT(OnSave()));
+	//connect(actionSaveAs, SIGNAL(triggered()), this, SLOT(OnSaveAs()));
+	//connect(actionNew, SIGNAL(triggered()), this, SLOT(OnNew()));
+	//connect(actionOpen, SIGNAL(triggered()), this, SLOT(OnOpen()));
+	//connect(actionExit, SIGNAL(triggered()), this, SLOT(OnQuit()));
 
 	//btn_new = new QPushButton(this);
 	//btn_new->setGeometry(QRect(19, 10, 50, 20));

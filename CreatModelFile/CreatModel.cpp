@@ -14,8 +14,8 @@
 CreatModel::CreatModel(QWidget* parent)
 : QDialog(parent), m_flag(0), m_infos(new QStandardItemModel),m_flagName("")
 { 
-	//this->setFixedSize(572, 554);
-	this->resize(572, 580);
+	this->setFixedSize(572, 554);
+	//this->resize(572, 580);
 	QPixmap iconImg(QDir::currentPath() +"/image/model.png");
 	QIcon icon(iconImg);
 	this->setWindowIcon(icon);
